@@ -1,13 +1,3 @@
-# 💰 FinAI Companion
-
-> **Seu coach financeiro digital: transformando números em decisões conscientes**
-
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.29+-red.svg)](https://streamlit.io/)
-[![Gemini](https://img.shields.io/badge/AI-Gemini-green.svg)](https://ai.google.dev/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
----
 
 ## 📋 Índice
 
@@ -477,8 +467,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 
 **Desenvolvedor:** Raphael Mendes
 **Email:** python.dev.raphael@gmail.com
-**GitHub:** pythondevraphael-cmyk
-**LinkedIn:** https://www.linkedin.com/in/raphael-mendes-9ba7613a5/
+**GitHub:**  https://github.com/raphaelmendes-dev
+**LinkedIn:** https://www.linkedin.com/in/raphaelmendes-dev/
 
 ---
 
