@@ -42,26 +42,7 @@ Focus on **low latency**, **deterministic validation** and **financial education
 - 🔒 **Deterministic validations** + input sanitization
 - 📚 **Educational FAQ** + financial glossary
 - 🎨 **Cyberpunk UI** with animated robot
-
-## 🏗️ Hybrid Architecture
-
-```mermaid
-graph TD
-    A[User - Streamlit UI] --> B[app.py - Orchestrator + Dashboard]
-    B --> C[ai_core.py - Gemini API + Prompt Engineering]
-    B --> D[data_handler.py - Calculations + yfinance Market]
-    C --> E[utils.py - JSON Persistence + Validation + Formatting]
-    D --> E
-    E --> F[Final Response + Chart + Metrics]
-    F --> A
-    subgraph "Hybrid Layer"
-        C[LLM Educational]
-        D[Deterministic + Real Data]
-    end
-
-    ```markdown
     
-
 🛠️ Tech Stack
 
 Backend/AI → Python 3.8+, Google Gemini
