@@ -42,22 +42,6 @@ Foco em **baixa latência**, **validação determinística** (evita alucinaçõe
 - 📚 **FAQ educativo** + glossário financeiro integrado
 - 🎨 **UI cyberpunk** com robô animado (assets/robot_fin.png)
 
-## 🏗️ Arquitetura Híbrida
-
-```mermaid
-graph TD
-    A[Usuário - Streamlit UI] --> B[app.py - Orquestrador + Dashboard]
-    B --> C[ai_core.py - Gemini API + Prompt Engineering]
-    B --> D[data_handler.py - Cálculos + yfinance Mercado Real]
-    C --> E[utils.py - Persistência JSON + Validação + Formatação]
-    D --> E
-    E --> F[Resposta Final + Gráfico + Métricas]
-    F --> A
-    subgraph "Camada Híbrida"
-        C[LLM Educacional]
-        D[Lógica Determinística + Dados Reais]
-    end
-
 
 🛠️ Stack Técnica
 
