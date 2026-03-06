@@ -1,4 +1,3 @@
-```markdown 
 [![Status](https://img.shields.io/badge/Status-MVP%20Completed-brightgreen)](https://github.com/raphaelmendes-dev/FinAI-Assistente-Financeiro)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.29+-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
@@ -42,7 +41,9 @@ Focus on **low latency**, **deterministic validation** and **financial education
 - 🔒 **Deterministic validations** + input sanitization
 - 📚 **Educational FAQ** + financial glossary
 - 🎨 **Cyberpunk UI** with animated robot
-    
+
+Flow: Input → LLM explanation → Python validates/computes → safe output.
+
 🛠️ Tech Stack
 
 Backend/AI → Python 3.8+, Google Gemini
@@ -63,7 +64,6 @@ DependenciesBashpip install -r requirements.txt
 Gemini key
 Create .env:textGEMINI_API_KEY=your-key-here
 RunBashstreamlit run app.py
-
 
 💡 How to Use
 
@@ -89,13 +89,11 @@ Redis caching for even lower latency
 Additional data sources
 User authentication + multi-profiles
 
-## 🤝 Contribute or Freelance
+🤝 Contribute or Freelance
 Contributions welcome! Fork → branch → PR.
 
 Hybrid AI architectures (LLM + deterministic), Groq, FastAPI, Azure AI, Redis, low-latency.
-
 delivered functional projects.
-
 Contact: raphaelmendes-dev | python.dev.raphael@gmail.com | LinkedIn
 
 ⭐ Star if you like it!
