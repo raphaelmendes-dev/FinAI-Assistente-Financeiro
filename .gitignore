@@ -1,3 +1,27 @@
+# Ambientes virtuais
 venv/
+.venv/
+env/
+ENV/
+
+# Arquivos de ambiente
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python cache e compilados
 __pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Outros comuns
+.DS_Store
+Thumbs.db
+*.log
