@@ -58,7 +58,7 @@ CloneBashgit clone https://github.com/raphaelmendes-dev/FinAI-Assistente-Finance
 cd FinAI-Assistente-Financeiro
 Ambiente virtualBashpython -m venv venv
 venv\Scripts\activate  # Windows
-# ou source venv/bin/activate  # Linux/Mac
+ou source venv/bin/activate  - Linux/Mac
 DependênciasBashpip install -r requirements.txt
 Chave Gemini
 Crie .env:textGEMINI_API_KEY=sua-chave-aqui
