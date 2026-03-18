@@ -21,7 +21,24 @@ __pycache__/
 # VS Code
 .vscode/
 
-# Outros comuns
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+
+# Build
+frontend/build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
 .DS_Store
 Thumbs.db
-*.log
+
+# Docs (pasta interna)
+docs/
+
+# Streamlit antigo
+backend/app_streamlit_old.py
