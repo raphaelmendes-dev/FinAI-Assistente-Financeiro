@@ -17,7 +17,7 @@ app = FastAPI(title="FinAI API", version="2.0.0")
 # ── CORS — permite o frontend Next.js chamar o backend ──
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://*.vercel.app"],
+    allow_origins=["http://localhost:3000", "https://finai-companion.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
