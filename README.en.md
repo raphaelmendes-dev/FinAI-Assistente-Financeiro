@@ -44,6 +44,8 @@ Focus on **low latency**, **deterministic validation** and **financial education
 
 Flow: Input → LLM explanation → Python validates/computes → safe output.
 
+
+
 🛠️ Tech Stack
 
 Backend/AI → Python 3.8+, Google Gemini
@@ -52,6 +54,8 @@ Data/Market → yfinance, pandas
 Persistence → JSON
 Env → python-dotenv
 Assets → Custom CSS + robot animation
+
+
 
 🚀 Quick Install
 
@@ -65,12 +69,16 @@ Gemini key
 Create .env:textGEMINI_API_KEY=your-key-here
 RunBashstreamlit run app.py
 
+
+
 💡 How to Use
 
 Chat: Ask anything financial
 Dashboard: View live market metrics
 Sidebar: Enter capital, deposit, rate, time → see final amount + chart
 Context: Conversation continues naturally
+
+
 
 📊 Results & Differentiators
 
@@ -81,6 +89,8 @@ Modern UI + robot animation
 Education-focused + ethical warnings
 Input validation + sanitization
 
+
+
 🚀 Future Roadmap
 
 Voice input (Whisper)
@@ -89,12 +99,16 @@ Redis caching for even lower latency
 Additional data sources
 User authentication + multi-profiles
 
+
+
 🤝 Contribute or Freelance
 Contributions welcome! Fork → branch → PR.
 
 Hybrid AI architectures (LLM + deterministic), Groq, FastAPI, Azure AI, Redis, low-latency.
 delivered functional projects.
 Contact: raphaelmendes-dev | python.dev.raphael@gmail.com | LinkedIn
+
+
 
 ⭐ Star if you like it!
 

@@ -42,21 +42,7 @@ Foco em **baixa latência**, **validação determinística** (evita alucinaçõe
 - 📚 **FAQ educativo** + glossário financeiro integrado
 - 🎨 **UI cyberpunk** com robô animado (assets/robot_fin.png)
 
-## 🏗️ Arquitetura Híbrida
 
-```mermaid
-graph TD
-    A[Usuário - Streamlit UI] --> B[app.py - Orquestrador + Dashboard]
-    B --> C[ai_core.py - Gemini API + Prompt Engineering]
-    B --> D[data_handler.py - Cálculos + yfinance Mercado Real]
-    C --> E[utils.py - Persistência JSON + Validação + Formatação]
-    D --> E
-    E --> F[Resposta Final + Gráfico + Métricas]
-    F --> A
-    subgraph "Camada Híbrida"
-        C[LLM Educacional]
-        D[Lógica Determinística + Dados Reais]
-    end
 
 
 🛠️ Stack Técnica
@@ -68,44 +54,50 @@ graph TD
 - Env → python-dotenv
 - Assets → CSS custom + imagem robô animado
 
+
+
 🚀 Instalação Rápida
 
-CloneBashgit clone https://github.com/raphaelmendes-dev/FinAI-Assistente-Financeiro.git
-cd FinAI-Assistente-Financeiro
-Ambiente virtualBashpython -m venv venv
-venv\Scripts\activate  # Windows
-# ou source venv/bin/activate  # Linux/Mac
-DependênciasBashpip install -r requirements.txt
-Chave Gemini
-Crie .env:textGEMINI_API_KEY=sua-chave-aqui
-ExecuteBashstreamlit run app.py
+- CloneBashgit clone https://github.com/raphaelmendes-dev/FinAI-Assistente-Financeiro.git
+- cd FinAI-Assistente-Financeiro
+- Ambiente virtualBashpython -m venv venv
+- venv\Scripts\activate  # Windows
+- ou source venv/bin/activate  - Linux/Mac
+- DependênciasBashpip install -r requirements.txt
+
+- Chave Gemini
+- Crie .env:textGEMINI_API_KEY=sua-chave-aqui
+- ExecuteBashstreamlit run app.py
+
 
 
 💡 Como Usar
 
-Chat: Pergunte qualquer coisa financeira ("Como investir R$ 10k em CDB?")
-Dashboard: Veja métricas reais do mercado
-Sidebar: Insira capital, aporte, taxa e tempo → veja montante + gráfico
-Contexto: Continue a conversa naturalmente (persistência automática)
+- Chat: Pergunte qualquer coisa financeira ("Como investir R$ 10k em CDB?")
+- Dashboard: Veja métricas reais do mercado
+- Sidebar: Insira capital, aporte, taxa e tempo → veja montante + gráfico
+- Contexto: Continue a conversa naturalmente (persistência automática)
+
 
 
 📊 Resultados & Diferenciais
 
-Precisão 100% em cálculos e simulações (determinístico)
-Latência baixa com Gemini Flash priorizado
-Dados reais de mercado (yfinance) com fallback robusto
-UI moderna + animação robô
-Educação > recomendação de produtos
-Validações + sanitização para segurança
+- Precisão 100% em cálculos e simulações (determinístico)
+- Latência baixa com Gemini Flash priorizado
+- Dados reais de mercado (yfinance) com fallback robusto
+- UI moderna + animação robô
+- Educação > recomendação de produtos
+- Validações + sanitização para segurança
+
 
 
 🚀 Roadmap Futuro
 
-Integração voz (Whisper)
-Export PDF/Excel de simulações
-Cache Redis para latência ainda menor
-Mais fontes de dados (ex.: Alpha Vantage, Open Finance)
-Autenticação simples + perfis múltiplos
+- Integração voz (Whisper)
+- Export PDF/Excel de simulações
+- Cache Redis para latência ainda menor
+- Mais fontes de dados (ex.: Alpha Vantage, Open Finance)
+- Autenticação simples + perfis múltiplos
 
 
 🤝 Contribua
@@ -116,6 +108,8 @@ Arquiteturas híbridas IA (LLM + determinístico), Groq, FastAPI, Azure AI, Redi
 projetos funcionais entregues.
 
 **Contato: raphaelmendes-dev | python.dev.raphael@gmail.com | LinkedIn** 
+
+
 
 ⭐ Dê uma estrela se o projeto te ajudou!
 
