@@ -17,13 +17,18 @@ export function useCalculadora() {
   const [glitch,  setGlitch]  = useState(false);
   const glitchTimer = useRef(null);
 
+  // ✅ CORREÇÃO: refs espelham sempre o valor atual dos states
+  const capitalRef = useRef(10000);
+  const aporteRef  = useRef(500);
+  const taxaRef    = useRef(12);
+  const mesesRef   = useRef(36);
+
   const triggerGlitch = useCallback(() => {
     clearTimeout(glitchTimer.current);
     setGlitch(true);
     glitchTimer.current = setTimeout(() => setGlitch(false), 500);
   }, []);
 
-  // Calculo local — sempre funciona mesmo sem backend
   const calcularLocal = useCallback((c, a, t, m) => {
     const cap = Number(c) || 0;
     const apo = Number(a) || 0;
@@ -32,13 +37,20 @@ export function useCalculadora() {
 
     const taxaMensal = tax / 100 / 12;
     let val = cap;
-    const pontos = [];
-    for (let i = 0; i <= Math.min(mes, 60); i++) {
-      pontos.push(Math.round(val));
+    const pontos = [Math.round(cap)];
+
+    for (let i = 0; i < mes; i++) {
       val = val * (1 + taxaMensal) + apo;
+      if (mes <= 60 || i % Math.ceil(mes / 60) === 0) {
+        pontos.push(Math.round(val));
+      }
     }
-    const totalInvestido = cap + apo * mes;
+    if (pontos[pontos.length - 1] !== Math.round(val)) {
+      pontos.push(Math.round(val));
+    }
+
     const montante = val;
+    const totalInvestido = cap + apo * mes;
     const lucro = montante - totalInvestido;
     const rentabilidade = totalInvestido > 0
       ? ((montante / totalInvestido - 1) * 100).toFixed(1)
@@ -47,18 +59,17 @@ export function useCalculadora() {
     return { montante, totalInvestido, lucro, rentabilidade, pontos };
   }, []);
 
+  // ✅ CORREÇÃO: calcular lê das refs, nunca do closure congelado
   const calcular = useCallback(async (c, a, t, m) => {
-    const cap = c ?? capital;
-    const apo = a ?? aporte;
-    const tax = t ?? taxa;
-    const mes = m ?? meses;
+    const cap = c ?? capitalRef.current;
+    const apo = a ?? aporteRef.current;
+    const tax = t ?? taxaRef.current;
+    const mes = m ?? mesesRef.current;
 
-    // Atualiza resultado local imediatamente (sem esperar backend)
     const local = calcularLocal(cap, apo, tax, mes);
     setResult(local);
     triggerGlitch();
 
-    // Tenta backend em paralelo
     try {
       setLoading(true);
       const res = await fetch(`${API}/api/calcular`, {
@@ -69,17 +80,37 @@ export function useCalculadora() {
       const data = await res.json();
       if (data.success) setResult(data);
     } catch {
-      // mantém resultado local — sem problema
+      // mantém resultado local
     } finally {
       setLoading(false);
     }
-  }, [capital, aporte, taxa, meses, calcularLocal, triggerGlitch]);
+  }, [calcularLocal, triggerGlitch]); // ✅ sem dependências voláteis
 
-  // Cada setter atualiza o estado E recalcula com o novo valor
-  const handleCapital = (val) => { const v = Number(val) || 0; setCapital(v); calcular(v, aporte, taxa, meses); };
-  const handleAporte  = (val) => { const v = Number(val) || 0; setAporte(v);  calcular(capital, v, taxa, meses); };
-  const handleTaxa    = (val) => { const v = Number(val) || 0; setTaxa(v);    calcular(capital, aporte, v, meses); };
-  const handleMeses   = (val) => { const v = Number(val) || 1; setMeses(v);   calcular(capital, aporte, taxa, v); };
+  // ✅ CORREÇÃO: cada handler atualiza a ref antes de calcular
+  const handleCapital = (val) => {
+    const v = Number(val) || 0;
+    capitalRef.current = v;
+    setCapital(v);
+    calcular(v, aporteRef.current, taxaRef.current, mesesRef.current);
+  };
+  const handleAporte = (val) => {
+    const v = Number(val) || 0;
+    aporteRef.current = v;
+    setAporte(v);
+    calcular(capitalRef.current, v, taxaRef.current, mesesRef.current);
+  };
+  const handleTaxa = (val) => {
+    const v = Number(val) || 0;
+    taxaRef.current = v;
+    setTaxa(v);
+    calcular(capitalRef.current, aporteRef.current, v, mesesRef.current);
+  };
+  const handleMeses = (val) => {
+    const v = Number(val) || 1;
+    mesesRef.current = v;
+    setMeses(v);
+    calcular(capitalRef.current, aporteRef.current, taxaRef.current, v);
+  };
 
   return {
     capital, setCapital: handleCapital,
