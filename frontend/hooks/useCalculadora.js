@@ -118,6 +118,6 @@ export function useCalculadora() {
     taxa,    setTaxa:    handleTaxa,
     meses,   setMeses:   handleMeses,
     perfil,  setPerfil,
-    result, loading, glitch, triggerGlitch, calcular,
+    result, loading, glitch,
   };
 }

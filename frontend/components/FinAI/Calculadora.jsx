@@ -10,7 +10,7 @@ const perfilOptions = [
 
 const fmtBRL = (v) => `R$ ${Number(v).toLocaleString("pt-BR", { minimumFractionDigits:2, maximumFractionDigits:2 })}`;
 
-export default function Calculadora({ capital, setCapital, aporte, setAporte, taxa, setTaxa, meses, setMeses, perfil, setPerfil, result, glitch, onRecalcular }) {
+export default function Calculadora({ capital, setCapital, aporte, setAporte, taxa, setTaxa, meses, setMeses, perfil, setPerfil, result, glitch }) {
   return (
     <div style={{
       width:"260px", flexShrink:0,
@@ -74,18 +74,6 @@ export default function Calculadora({ capital, setCapital, aporte, setAporte, ta
           </div>
         ))}
       </div>
-
-      {/* Botão */}
-      <button onClick={onRecalcular} style={{
-        padding:"11px",
-        background:`linear-gradient(135deg, ${T.gold}20, ${T.gold}08)`,
-        border:`1px solid ${T.gold}55`, borderRadius:"6px",
-        color:T.gold, fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.18em", textTransform:"uppercase",
-        cursor:"pointer", fontWeight:"700", boxShadow:`0 0 16px ${T.gold}22`, transition:"all 0.2s",
-      }}
-        onMouseEnter={e=>{ e.currentTarget.style.background=`${T.gold}28`; e.currentTarget.style.boxShadow=`0 0 24px ${T.gold}44`; }}
-        onMouseLeave={e=>{ e.currentTarget.style.background=`linear-gradient(135deg,${T.gold}20,${T.gold}08)`; e.currentTarget.style.boxShadow=`0 0 16px ${T.gold}22`; }}
-      >₿  RECALCULAR</button>
     </div>
   );
 }
