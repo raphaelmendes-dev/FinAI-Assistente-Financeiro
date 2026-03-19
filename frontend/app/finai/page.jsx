@@ -22,9 +22,6 @@ export default function FinAIPage() {
   const chat        = useChat();
   const { indicators, liveStatus } = useIndicadores();
 
-  // Dispara cálculo inicial ao montar
-  useEffect(() => { calc.calcular(); }, []);
-
   // Notifica o chat quando a projeção muda muito
   useEffect(() => {
     if (!calc.result.montante) return;
@@ -57,7 +54,6 @@ export default function FinAIPage() {
             perfil={calc.perfil}     setPerfil={calc.setPerfil}
             result={calc.result}
             glitch={calc.glitch}
-            onRecalcular={calc.calcular}
           />
 
           {/* CONTEÚDO CENTRAL */}
