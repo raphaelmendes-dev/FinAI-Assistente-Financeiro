@@ -155,6 +155,8 @@ App disponível em: `http://localhost:3000/finai`
 ## 🤝 Contato
 
 **Rs4Machine — AI Research Lab**
+
+
 Fundador / Engenheiro Principal : Raphael Mendes
 
 📧 python.dev.raphael@gmail.com  
