@@ -1,4 +1,4 @@
-[![Status](https://img.shields.io/badge/Status-Live%20em%20Produção-brightgreen)](https://finai-companion.vercel.app/finai)
+[![Status](https://img.shields.io/badge/Status-Live%20in%20Production-brightgreen)](https://finai-companion.vercel.app/finai)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&logoColor=white)](https://finai-companion.onrender.com/docs)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://finai-companion.vercel.app/finai)
@@ -8,93 +8,93 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <div align="center">
-  <img src="assets/Rs4Machine.png" alt="Rs4Machine Logo" width="380" />
+  <img src="assets/Rs4Machine.jpeg" alt="Rs4Machine Logo" width="380" />
   <h1>₿ FinAI — Rs4Machine</h1>
   <img src="assets/finai.gif" alt="FinAI Demo" width="100%" />
   <p><strong>Financial AI Assistant v1.0</strong></p>
-  <p>Assistente financeiro híbrido — IA generativa + cálculos determinísticos + dados reais de mercado.</p>
+  <p>Hybrid financial assistant — generative AI + deterministic calculations + real market data.</p>
   <p>
-    <a href="https://finai-companion.vercel.app/finai" target="_blank"><strong>🚀 App Online</strong></a> •
+    <a href="https://finai-companion.vercel.app/finai" target="_blank"><strong>🚀 Live App</strong></a> •
     <a href="https://finai-companion.onrender.com/docs" target="_blank"><strong>📡 API Docs</strong></a> •
     <a href="https://github.com/raphaelmendes-dev"><strong>GitHub</strong></a> •
-    <a href="mailto:python.dev.raphael@gmail.com">Contato</a>
+    <a href="mailto:python.dev.raphael@gmail.com">Contact</a>
   </p>
-  <p><em>README in <a href="README.en.md">English</a></em></p>
+  <p><em>README em <a href="README.pt-BR.md">Português</a></em></p>
 </div>
 
 ---
 
-## 🎯 Visão Geral
+## 🎯 Overview
 
-O **FinAI** é um assistente financeiro desenvolvido pela **Rs4Machine** que combina IA generativa com lógica determinística. Diferente de chatbots financeiros genéricos, ele garante precisão 100% nos cálculos ao separar a camada de simulação (determinística) da camada conversacional (Gemini), eliminando alucinações em dados numéricos.
+**FinAI** is a financial assistant built by **Rs4Machine** that combines generative AI with deterministic logic. Unlike generic financial chatbots, it guarantees 100% accuracy in calculations by separating the simulation layer (deterministic) from the conversational layer (Gemini), eliminating hallucinations on numerical data.
 
-- 💬 Chat inteligente com Google Gemini (Flash/Pro auto-detectado)
-- 🧮 Calculadora de juros compostos com aportes mensais
-- 📊 Gráfico de evolução patrimonial em tempo real
-- 📈 Dashboard com dados reais: SELIC, IPCA, Dólar, Ibovespa (yfinance)
-- 🎨 Interface dark mode com design DNA Rs4Machine
-- 🔒 Validações determinísticas — sem alucinações em cálculos
+- 💬 Intelligent chat powered by Google Gemini (Flash/Pro auto-detected)
+- 🧮 Compound interest calculator with monthly contributions
+- 📊 Real-time wealth evolution chart
+- 📈 Dashboard with live data: SELIC, IPCA, Dollar, Ibovespa (yfinance)
+- 🎨 Dark mode interface with Rs4Machine Design DNA
+- 🔒 Deterministic validations — zero hallucinations on calculations
 
 ---
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
 ```
 finai-companion/
 ├── frontend/                        → Next.js 16 (Vercel)
 │   ├── app/
 │   │   └── finai/
-│   │       └── page.jsx             → Orquestrador principal (~180 linhas)
+│   │       └── page.jsx             → Main orchestrator (~180 lines)
 │   ├── components/FinAI/
-│   │   ├── Calculadora.jsx          → Sidebar calculadora + perfil de risco
-│   │   ├── GraficoEvolucao.jsx      → Gráfico de evolução patrimonial
-│   │   ├── ChatPanel.jsx            → Chat com Gemini
-│   │   ├── Dashboard.jsx            → Métricas SELIC, IPCA, Dólar, Ibovespa
-│   │   └── Rs4Input.jsx             → Input customizado Rs4Machine
+│   │   ├── Calculadora.jsx          → Calculator sidebar + risk profile
+│   │   ├── GraficoEvolucao.jsx      → Wealth evolution chart
+│   │   ├── ChatPanel.jsx            → Gemini chat panel
+│   │   ├── Dashboard.jsx            → SELIC, IPCA, Dollar, Ibovespa metrics
+│   │   └── Rs4Input.jsx             → Rs4Machine custom input
 │   ├── hooks/
-│   │   └── useCalculadora.js        → Lógica de cálculo + integração API
+│   │   └── useCalculadora.js        → Calculation logic + API integration
 │   ├── constants/
-│   │   └── tokens.js                → Design DNA Rs4Machine
+│   │   └── tokens.js                → Rs4Machine Design DNA
 │   └── styles/
 │       └── finai.css                → Keyframes + globals
 └── backend/                         → Python + FastAPI (Render)
-    ├── main.py                      → Rotas principais
+    ├── main.py                      → Main routes
     ├── requirements.txt
     └── routers/
-        ├── calcular.py              → POST /api/calcular — juros compostos
+        ├── calcular.py              → POST /api/calcular — compound interest
         ├── chat.py                  → POST /api/chat — Gemini AI
         └── mercado.py               → GET /api/mercado — yfinance
 ```
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- Chat conversacional com Google Gemini sobre finanças pessoais
-- Calculadora de juros compostos com aportes mensais e perfil de risco
-- Gráfico de evolução patrimonial atualizado em tempo real
-- Dashboard com SELIC, IPCA, Dólar e Ibovespa via yfinance (fallback seguro)
-- Perfis de risco: Conservador, Moderado e Arrojado
-- Cálculo local imediato + validação no backend em paralelo
-- Interface 100% responsiva com design tokens Rs4Machine
+- Conversational chat with Google Gemini on personal finance topics
+- Compound interest calculator with monthly contributions and risk profiles
+- Wealth evolution chart updated in real time
+- Dashboard with SELIC, IPCA, Dollar and Ibovespa via yfinance (safe fallback)
+- Risk profiles: Conservative, Moderate and Aggressive
+- Instant local calculation + backend validation in parallel
+- Fully responsive interface with Rs4Machine design tokens
 
 ---
 
-## 🛠️ Stack Técnica
+## 🛠️ Tech Stack
 
-| Camada | Tecnologia |
+| Layer | Technology |
 |---|---|
 | Frontend | Next.js 16 + React |
-| Estilo | CSS-in-JS + Design Tokens Rs4Machine |
+| Styling | CSS-in-JS + Rs4Machine Design Tokens |
 | Backend | Python 3.11+ + FastAPI + uvicorn |
-| IA | Google Gemini API (Flash/Pro) |
-| Dados de Mercado | yfinance + pandas |
-| Deploy Frontend | Vercel |
-| Deploy Backend | Render |
+| AI | Google Gemini API (Flash/Pro) |
+| Market Data | yfinance + pandas |
+| Frontend Deploy | Vercel |
+| Backend Deploy | Render |
 
 ---
 
-## 🚀 Como Rodar Localmente
+## 🚀 Running Locally
 
 ### Backend
 ```powershell
@@ -105,13 +105,13 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-Crie o arquivo `.env` na pasta `backend/`:
+Create a `.env` file inside the `backend/` folder:
 ```env
-GEMINI_API_KEY=sua-chave-aqui
+GEMINI_API_KEY=your-key-here
 PORT=8000
 ```
 
-API disponível em: `http://localhost:8000/docs`
+API available at: `http://localhost:8000/docs`
 
 ### Frontend
 ```powershell
@@ -120,47 +120,48 @@ npm install
 npm run dev
 ```
 
-Crie o arquivo `.env.local` na pasta `frontend/`:
+Create a `.env.local` file inside the `frontend/` folder:
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-App disponível em: `http://localhost:3000/finai`
+App available at: `http://localhost:3000/finai`
 
-> ⚠️ Rode os dois terminais ao mesmo tempo.
+> ⚠️ Run both terminals at the same time.
 
 ---
 
-## 📡 Endpoints da API
+## 📡 API Endpoints
 
-| Método | Rota | Descrição |
+| Method | Route | Description |
 |---|---|---|
-| GET | `/` | Status da API |
-| POST | `/api/calcular` | Simulação de juros compostos com aportes |
-| POST | `/api/chat` | Chat com Google Gemini |
-| GET | `/api/mercado` | Dados reais: SELIC, IPCA, Dólar, Ibovespa |
+| GET | `/` | API status |
+| POST | `/api/calcular` | Compound interest simulation with contributions |
+| POST | `/api/chat` | Chat with Google Gemini |
+| GET | `/api/mercado` | Live data: SELIC, IPCA, Dollar, Ibovespa |
 
 ---
 
-## 🔑 Variáveis de Ambiente
+## 🔑 Environment Variables
 
-| Variável | Onde | Descrição |
+| Variable | Location | Description |
 |---|---|---|
-| `NEXT_PUBLIC_API_URL` | frontend `.env.local` | URL do backend |
-| `GEMINI_API_KEY` | backend `.env` | Chave da Google Gemini API |
-| `PORT` | backend `.env` | Porta do uvicorn |
+| `NEXT_PUBLIC_API_URL` | frontend `.env.local` | Backend URL |
+| `GEMINI_API_KEY` | backend `.env` | Google Gemini API key |
+| `PORT` | backend `.env` | uvicorn port |
 
 ---
 
-## 🤝 Contato
+## 🤝 Contact
 
-**Rs4Machine** — Corporação de Agentes Autônomos  
-CEO: Raphael Mendes  
+**Rs4Machine — AI Research Lab**
+Founder / Lead Engineer: Raphael Mendes  
+
 📧 python.dev.raphael@gmail.com  
 🔗 [github.com/raphaelmendes-dev](https://github.com/raphaelmendes-dev)
 
 ---
 
-⭐ Dê uma estrela se o projeto te ajudou!
+⭐ Star this repo if it helped you!
 
-*Última atualização: Março 2026*
+*Last updated: September 2026*
