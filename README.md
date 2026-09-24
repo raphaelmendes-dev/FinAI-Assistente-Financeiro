@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <div align="center">
-  <img src="assets/Rs4Machine.jpeg" alt="Rs4Machine Logo" width="380" />
+  <img src="assets/Rs4Machine.png" alt="Rs4Machine Logo" width="380" />
   <h1>₿ FinAI — Rs4Machine</h1>
   <img src="assets/finai.gif" alt="FinAI Demo" width="100%" />
   <p><strong>Financial AI Assistant v1.0</strong></p>
